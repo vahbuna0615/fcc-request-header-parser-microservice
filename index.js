@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/whoami', (req, res) => {
-  res.json({ ipaddress: req.ip, language: req.headers['accept-language'], software: req.headers['user-agent']});
+  res.json({ ipaddress: req.socket.remoteAddress, language: req.headers['accept-language'], software: req.headers['user-agent']});
 });
 
 const listener = app.listen(process.env.PORT || 3000, () => {
